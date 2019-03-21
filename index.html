@@ -1,0 +1,190 @@
+<!--
+  
+   Copyrightⓒ2018 Night_Planet. All right reserved.
+
+   Desgin by Cholong Mo
+
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>모초롱 포트폴리오</title>
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+
+</head>
+<body>
+<div id="wrap">
+
+	<div id="main">
+
+		<div id="header">
+			<a class="logo" href="#"><img src="images/logo.png"></a>
+			<!--햄버거메뉴-->
+			<input id="burger" type="checkbox">
+			<label for="burger">
+				<img src="images/menu.png" class="menu">
+			</label>
+			<nav>
+  			<ul>
+    			<li><a href="#"><img src="images/menu01.png"></a></li>
+    			<li><a href="#"><img src="images/menu02.png"></a></li>
+    			<li><a href="#"><img src="images/menu03.png"></a></li>
+  			</ul>  
+			</nav>
+
+			<!--오디오 코멘터리-->
+			<div class="commentary">
+				<img src="images/playlist.png" class="playlist" />
+				<audio controls="controls" autoplay="true">
+					<source src="audio/comment_main.mp3" type="audio/mpeg" />
+				</audio>
+			</div>
+
+		</div>
+
+		<img src="images/title.png" class="title">
+		<img src="images/scrolldown.png" class="scrolldown">
+		<img src="images/mouse.png" class="mouse">
+	</div>
+
+
+	<div id="portfolio">
+
+		<div class="mobile wow fadeInUp">
+			<a href="#"><img src="images/proximity.png" alt="근접성/모바일디자인" onmouseover="this.src='images/proximity_over.png'" onmouseout="this.src='images/proximity.png'" /></a>
+		</div>
+
+		<div class="personal wow fadeInUp">
+			<a href="#"><img src="images/commonfate.png" alt="공동운명/퍼스널사이트디자인" onmouseover="this.src='images/commonfate_over.png'" onmouseout="this.src='images/commonfate.png'" /></a>
+		</div>
+
+		<div class="web wow fadeInUp">
+			<a href="#"><img src="images/pastex.png" alt="과거의 경험/웹사이트디자인"></a>
+		</div>
+
+		<div class="event wow fadeInUp">
+			<a href="#"><img src="images/simplicity.png" alt="단순성/이벤트디자인"></a>
+		</div>
+
+		<div class="parts01">
+			<img src="images/parts01.png" alt="꾸밈요소01">
+		</div>
+
+		<div class="poster wow fadeInUp">
+			<a href="#"><img src="images/focalpoint.png" alt="초점/모델링포스터디자인"></a>
+		</div>
+
+		<div class="parts02 wow fadeInUp">
+			<img src="images/parts02.png" alt="꾸밈요소02">
+		</div>
+
+		<div class="branding wow fadeInUp">
+			<a href="#"><img src="images/closure.png" alt="완결성/브랜딩디자인"></a>
+		</div>
+
+		<div class="illust wow fadeInUp">
+			<a href="#"><img src="images/similarity.png" alt="유사성/일러스트"></a>
+		</div>
+
+		<div class="parts03 wow fadeInUp">
+			<img src="images/parts03.jpg" alt="꾸밈요소03">
+		</div>
+
+		<div class="graphic wow fadeInUp">
+			<a href="#"><img src="images/continuation.png" alt="연속성/그래픽디자인"></a>
+		</div>
+
+		<div class="contactme wow fadeInUp">
+			<a href="#"><img src="images/contactme.png" alt="컨택트페이지로이동"></a>
+		</div>
+
+	</div>
+
+	<div id="footer">
+		<img class="copyright" src="images/copyright.png" alt="카피라이트">
+	</div>
+
+</div>
+
+
+
+
+<!--헤더 숨기기-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+// Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('#header').outerHeight();
+
+$(window).scroll(function(event){
+	didScroll = true;
+});
+
+setInterval(function() {
+	if (didScroll) {
+		hasScrolled();
+		didScroll = false;
+	}
+}, 250);
+
+function hasScrolled() {
+	var st = $(this).scrollTop();
+
+		// Make sure they scroll more than delta
+		if(Math.abs(lastScrollTop - st) <= delta) return;
+
+		// If they scrolled down and are past the navbar, add class .nav-up.
+		// This is necessary so you never see what is "behind" the navbar.
+		if (st > lastScrollTop && st > navbarHeight){
+			// Scroll Down
+			$('#header').removeClass('nav-down').addClass('nav-up');
+			} else {
+				// Scroll Up
+				if(st + $(window).height() < $(document).height()) { $('#header').removeClass('nav-up').addClass('nav-down');
+				}
+		}
+
+		lastScrollTop = st;
+}
+</script>
+
+
+<!--물결 파동 효과-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="js/jquery.ripples.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#main').ripples({
+			resolution: 512,
+			dropRadius: 40, //px
+			perturbance: 0.005,
+		});
+	})
+
+	// Automatic drops
+	//setInterval(function() {
+		//var $el = $('#main');
+		//var x = Math.random() * $el.outerWidth();
+		//var y = Math.random() * $el.outerHeight();
+		//var dropRadius = 20;
+		//var strength = 0.04 + Math.random() * 0.04;
+
+		//$el.ripples('drop', x, y, dropRadius, strength);
+	//}, 100);
+</script>
+
+<!--스크롤 애니메이션-->
+<script src="js/wow.min.js"></script>
+<script>
+  new WOW().init();
+</script>
+</body>
+</html>
